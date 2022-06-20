@@ -68,6 +68,14 @@ class Profile extends StatelessWidget {
 class KegiatanList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return (Text('te'));
+    return (Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text('tes'),
+        Container(
+          child: Text('kegiatan list'),
+        )
+      ],
+    ));
   }
 }
