@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:rukun_tetangga/main_screen.dart';
 
-var blueText = TextStyle(fontFamily: 'Nunito Sans', color: Colors.blue);
+var blueText = const TextStyle(fontFamily: 'Nunito Sans', color: Colors.blue);
 
 class JoinCommunity extends StatelessWidget {
+  const JoinCommunity({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
+        padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
         child: Column(
           children: [
             Row(
@@ -27,13 +30,13 @@ class JoinCommunity extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(20, 124, 20, 0),
+              padding: const EdgeInsets.fromLTRB(20, 124, 20, 0),
               child: Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.only(bottom: 20),
-                    child: Text(
-                      'Tanyakan ketua RT Anda terkait kode grup dan tuliskan disini ya',
+                    padding: const EdgeInsets.only(bottom: 20),
+                    child: const Text(
+                      "Tanyakan ketua RT Anda terkait kode grup dan tuliskan disini ya",
                       textAlign: TextAlign.justify,
                       style: TextStyle(
                           fontSize: 18,
@@ -41,7 +44,7 @@ class JoinCommunity extends StatelessWidget {
                           fontWeight: FontWeight.w400),
                     ),
                   ),
-                  TextField(
+                  const TextField(
                     obscureText: true,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
@@ -51,17 +54,21 @@ class JoinCommunity extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.fromLTRB(20, 100, 20, 0),
+              padding: const EdgeInsets.fromLTRB(20, 100, 20, 0),
               child: ElevatedButton(
                 child: const Text(
                   'Gabung Grup RT',
                   style: TextStyle(
                       fontFamily: 'Nunito Sans', fontWeight: FontWeight.w600),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const MainScreen();
+                  }));
+                },
                 style: ElevatedButton.styleFrom(
                     minimumSize: const Size.fromHeight(51),
-                    primary: Color.fromRGBO(0, 148, 255, 1)),
+                    primary: const Color.fromRGBO(0, 148, 255, 1)),
               ),
             )
           ],
