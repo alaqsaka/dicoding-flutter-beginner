@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:rukun_tetangga/model/kegiatan.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
         body: SafeArea(
-            child: Padding(
-      padding: EdgeInsets.all(20.0),
-      child: Profile(),
-    )));
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            children: [Profile(), KegiatanList()],
+          ),
+        ),
+      ),
+    ));
   }
 }
 
@@ -30,7 +36,7 @@ class Profile extends StatelessWidget {
                 child: Text(
                   'Selamat datang, Pak Aqsa',
                   style: TextStyle(
-                      color: Color.fromRGBO(0, 148, 255, 1),
+                      color: Color.fromRGBO(41, 56, 78, 1),
                       fontFamily: 'Nunito Sans',
                       fontWeight: FontWeight.w600,
                       fontSize: 22),
@@ -56,5 +62,12 @@ class Profile extends StatelessWidget {
         ]),
       ],
     );
+  }
+}
+
+class KegiatanList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return (Text('te'));
   }
 }
