@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rukun_tetangga/kegiatan_detail.dart';
 import 'package:rukun_tetangga/model/kegiatan.dart';
 
 class MainScreen extends StatelessWidget {
@@ -123,10 +124,9 @@ class KegiatanList extends StatelessWidget {
           );
           return InkWell(
             onTap: () {
-              // navigate to detail
-              // Navigator.push(context, MaterialPageRoute(builder: (context) {
-              //   return DetailScreen(place: place);
-              // }));
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return KegiatanDetail(kegiatan: kegiatan);
+              }));
             },
             child: Padding(
               padding: const EdgeInsets.only(bottom: 10),
