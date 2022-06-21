@@ -8,8 +8,16 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(title: Text('List Kegiatan')),
-      body: KegiatanList(),
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.all(15),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [Profile(), KegiatanListTitle(), KegiatanList()],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
@@ -37,7 +45,7 @@ class Profile extends StatelessWidget {
                 ),
               ),
               Text(
-                'Warga RT 02 Alam Asri',
+                'Warga RT 02',
                 textAlign: TextAlign.start,
                 style: TextStyle(
                     color: Color.fromRGBO(196, 196, 196, 1),
@@ -65,43 +73,86 @@ class KegiatanList extends StatelessWidget {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       return ListView.builder(
+        // Sebelum pake physics ini seluruh layar engga bisa discroll, setelah pake jadi bisa discroll semua dari atas ke bawah
+        physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemBuilder: (context, index) {
           final Kegiatan kegiatan = kegiatanList[index];
+          var padding2 = Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  kegiatan.namaKegiatan,
+                  style: const TextStyle(
+                      fontSize: 16.0,
+                      color: Color.fromRGBO(21, 44, 91, 1),
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Nunito Sans'),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  'Tanggal ' + kegiatan.tanggal,
+                  style: TextStyle(
+                      fontFamily: 'Nunito Sans',
+                      fontSize: 14,
+                      color: Color.fromRGBO(176, 176, 176, 1),
+                      fontWeight: FontWeight.w500),
+                ),
+                Text(
+                  'Waktu ' + kegiatan.waktu,
+                  style: TextStyle(
+                      fontFamily: 'Nunito Sans',
+                      fontSize: 14,
+                      color: Color.fromRGBO(176, 176, 176, 1),
+                      fontWeight: FontWeight.w500),
+                ),
+                Text(
+                  'Tempat ' + kegiatan.tempat,
+                  style: TextStyle(
+                      fontFamily: 'Nunito Sans',
+                      fontSize: 14,
+                      color: Color.fromRGBO(176, 176, 176, 1),
+                      fontWeight: FontWeight.w500),
+                ),
+              ],
+            ),
+          );
           return InkWell(
             onTap: () {
+              // navigate to detail
               // Navigator.push(context, MaterialPageRoute(builder: (context) {
               //   return DetailScreen(place: place);
               // }));
             },
-            child: Card(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Expanded(
-                    flex: 1,
-                    child: Image.asset(kegiatan.imageAsset),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            kegiatan.namaKegiatan,
-                            style: const TextStyle(fontSize: 16.0),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Text(kegiatan.tempat),
-                        ],
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Card(
+                elevation: 0,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(5.0),
+                        child: Image.asset(
+                          kegiatan.imageAsset,
+                          height: 120,
+                          width: 120,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                  )
-                ],
+                    Expanded(
+                      flex: 2,
+                      child: padding2,
+                    )
+                  ],
+                ),
               ),
             ),
           );
@@ -119,7 +170,7 @@ class KegiatanListTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 25),
+          padding: const EdgeInsets.only(top: 25, bottom: 10),
           child: Text(
             'Kegiatan yang akan datang',
             style: TextStyle(
