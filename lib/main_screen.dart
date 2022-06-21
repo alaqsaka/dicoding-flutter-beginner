@@ -7,16 +7,10 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Column(
-            children: [Profile(), KegiatanList()],
-          ),
-        ),
-      ),
-    ));
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(title: Text('List Kegiatan')),
+      body: KegiatanList(),
+    );
   }
 }
 
@@ -68,13 +62,72 @@ class Profile extends StatelessWidget {
 class KegiatanList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+      return ListView.builder(
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          final Kegiatan kegiatan = kegiatanList[index];
+          return InkWell(
+            onTap: () {
+              // Navigator.push(context, MaterialPageRoute(builder: (context) {
+              //   return DetailScreen(place: place);
+              // }));
+            },
+            child: Card(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Expanded(
+                    flex: 1,
+                    child: Image.asset(kegiatan.imageAsset),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            kegiatan.namaKegiatan,
+                            style: const TextStyle(fontSize: 16.0),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(kegiatan.tempat),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          );
+        },
+        itemCount: kegiatanList.length,
+      );
+    });
+  }
+}
+
+class KegiatanListTitle extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return (Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text('tes'),
-        Container(
-          child: Text('kegiatan list'),
-        )
+        Padding(
+          padding: const EdgeInsets.only(top: 25),
+          child: Text(
+            'Kegiatan yang akan datang',
+            style: TextStyle(
+                color: Color.fromRGBO(0, 148, 255, 1),
+                fontSize: 20.0,
+                fontWeight: FontWeight.w700),
+          ),
+        ),
       ],
     ));
   }
