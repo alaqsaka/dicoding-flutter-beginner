@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           // primarySwatch: Colors.blue,
           scaffoldBackgroundColor: const Color.fromRGBO(255, 255, 255, 1)),
-      home: const JoinCommunity(),
+      home: JoinCommunity2(),
     );
   }
 }
