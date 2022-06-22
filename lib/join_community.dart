@@ -9,6 +9,7 @@ class JoinCommunity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
@@ -44,7 +45,10 @@ class JoinCommunity extends StatelessWidget {
                           fontWeight: FontWeight.w400),
                     ),
                   ),
-                  const TextField(
+                  TextField(
+                    onChanged: (text) {
+                      print(text);
+                    },
                     obscureText: true,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
