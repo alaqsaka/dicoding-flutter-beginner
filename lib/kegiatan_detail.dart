@@ -154,11 +154,11 @@ class _LikesButtonState extends State<LikesButton> {
               });
             },
             icon: Icon(
-              isLike ? Icons.thumb_up_alt_outlined : Icons.thumb_up,
+              isLike ? Icons.thumb_up : Icons.thumb_up_alt_outlined,
               color: Colors.blue,
             )),
         Text(
-          isLike ? '0' : '1',
+          isLike ? '1' : '0',
           style: TextStyle(fontFamily: 'Nunito Sans'),
         )
       ],
