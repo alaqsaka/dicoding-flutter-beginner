@@ -1,16 +1,19 @@
-# rukun_tetangga
+# Dicoding Flutter Beginner Submssion
 
-A new Flutter project.
+Terdapat penggunaan Stateless Widget✅Row, Column
 
-## Getting Started
+Terdapat penggunaan Stateful Widget ✅ListView, Input
 
-This project is a starting point for a Flutter application.
+Memiliki minimal 2 (dua) halaman dan menerapkan Navigation ✅ 3 halaman (JoinCommunity, MainScreen, KegiatanDetails)
 
-A few resources to get you started if this is your first Flutter project:
+Tidak memiliki tampilan yang overflow ✅
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Halaman Join Community 
+### Masukkan input berupa string dengan minimal panjang 4
+![image](https://user-images.githubusercontent.com/40936981/175264238-ebeb372c-6e19-4a3c-8eac-0bbf178c1e48.png)
+## Halaman Main Screen
+### Berisi List Kegiatan dari sebuah RT
+![image](https://user-images.githubusercontent.com/40936981/175264292-ce09e700-94cd-4490-ab19-fbddf7b55a07.png)
+## Halaman kegiatan details
+### Berisi detail informasi kegiatan tersebut. Ada tombol like, comment, dah share.
+![image](https://user-images.githubusercontent.com/40936981/175264328-f7219036-b11c-4ba4-bfe1-ba24016775a2.png)
