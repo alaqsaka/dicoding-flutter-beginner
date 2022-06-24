@@ -128,7 +128,7 @@ class Buttons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [LikesButton(), CommentsButton(), ShareButton()],
+      children: [LikesButton(), BtnComment(), BtnShare()],
     );
   }
 }
@@ -166,14 +166,9 @@ class _LikesButtonState extends State<LikesButton> {
   }
 }
 
-class CommentsButton extends StatefulWidget {
-  const CommentsButton({Key? key}) : super(key: key);
+class BtnComment extends StatelessWidget {
+  const BtnComment({Key? key}) : super(key: key);
 
-  @override
-  State<CommentsButton> createState() => _CommentsButtonState();
-}
-
-class _CommentsButtonState extends State<CommentsButton> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -188,14 +183,9 @@ class _CommentsButtonState extends State<CommentsButton> {
   }
 }
 
-class ShareButton extends StatefulWidget {
-  const ShareButton({Key? key}) : super(key: key);
+class BtnShare extends StatelessWidget {
+  const BtnShare({Key? key}) : super(key: key);
 
-  @override
-  State<ShareButton> createState() => _ShareButtonState();
-}
-
-class _ShareButtonState extends State<ShareButton> {
   @override
   Widget build(BuildContext context) {
     return Row(
