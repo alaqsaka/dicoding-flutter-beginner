@@ -58,8 +58,7 @@ class _JoinCommunity2State extends State<JoinCommunity2> {
                         _kode = value;
                       });
                     },
-                    // obscureText: true,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Masukkan kode'),
                   )
@@ -96,8 +95,8 @@ class _JoinCommunity2State extends State<JoinCommunity2> {
 
 class JoinCommunity extends StatelessWidget {
   JoinCommunity({Key? key}) : super(key: key);
-  TextEditingController _controller = TextEditingController();
-  String _kode = '';
+  final TextEditingController _controller = TextEditingController();
+  final String _kode = '';
 
   @override
   Widget build(BuildContext context) {
@@ -141,7 +140,7 @@ class JoinCommunity extends StatelessWidget {
                   TextField(
                     onChanged: (String value) {},
                     // obscureText: true,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Masukkan kode'),
                   )

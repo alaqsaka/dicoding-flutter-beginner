@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: new ThemeData(
+      theme: ThemeData(
           // This is the theme of your application.
           //
           // Try running your application with "flutter run". You'll see the
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           // primarySwatch: Colors.blue,
           scaffoldBackgroundColor: const Color.fromRGBO(255, 255, 255, 1)),
-      home: JoinCommunity2(),
+      home: const JoinCommunity2(),
     );
   }
 }

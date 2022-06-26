@@ -11,10 +11,10 @@ class MainScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.all(15),
           child: SingleChildScrollView(
             child: Column(
-              children: [Profile(), KegiatanListTitle(), KegiatanList()],
+              children: [const Profile(), KegiatanListTitle(), KegiatanList()],
             ),
           ),
         ),
@@ -75,7 +75,7 @@ class KegiatanList extends StatelessWidget {
         builder: (BuildContext context, BoxConstraints constraints) {
       return ListView.builder(
         // Sebelum pake physics ini seluruh layar engga bisa discroll, setelah pake jadi bisa discroll semua dari atas ke bawah
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemBuilder: (context, index) {
           final Kegiatan kegiatan = kegiatanList[index];
@@ -97,7 +97,7 @@ class KegiatanList extends StatelessWidget {
                 ),
                 Text(
                   'Tanggal ' + kegiatan.tanggal,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontFamily: 'Nunito Sans',
                       fontSize: 14,
                       color: Color.fromRGBO(176, 176, 176, 1),
@@ -105,7 +105,7 @@ class KegiatanList extends StatelessWidget {
                 ),
                 Text(
                   'Waktu ' + kegiatan.waktu,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontFamily: 'Nunito Sans',
                       fontSize: 14,
                       color: Color.fromRGBO(176, 176, 176, 1),
@@ -113,7 +113,7 @@ class KegiatanList extends StatelessWidget {
                 ),
                 Text(
                   'Tempat ' + kegiatan.tempat,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontFamily: 'Nunito Sans',
                       fontSize: 14,
                       color: Color.fromRGBO(176, 176, 176, 1),
@@ -168,9 +168,9 @@ class KegiatanListTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return (Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
+      children: const [
         Padding(
-          padding: const EdgeInsets.only(top: 25, bottom: 10),
+          padding: EdgeInsets.only(top: 25, bottom: 10),
           child: Text(
             'Kegiatan yang akan datang',
             style: TextStyle(
